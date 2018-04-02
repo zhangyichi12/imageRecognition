@@ -10,14 +10,18 @@ import UIKit
 import CoreML
 import Vision   // 初步处理图片
 
+import TesseractOCR
+
 // UIImagePickerControllerDelegate 选照片，UINavigationControllerDelegate 负责弹出
-class ImageRecognitionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ImageRecognitionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, G8TesseractDelegate {
 
     @IBOutlet weak var imageDisplay: UIImageView!
     @IBOutlet weak var display: UILabel!
     
     let imagePicker = UIImagePickerController()
     let libraryImagePicker = UIImagePickerController()
+    
+    let tesseract = G8Tesseract(language:"eng")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +33,8 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
         libraryImagePicker.delegate = self
         libraryImagePicker.sourceType = .photoLibrary
         libraryImagePicker.allowsEditing = false
+        
+        tesseract.delegate = self
     }
 
     @IBAction func tablePhoto(_ sender: UIBarButtonItem) {
@@ -53,7 +59,16 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
                 return
             }
             
-            identifyImage(image: coreImage)
+//            identifyImage(image: coreImage)
+            
+            tesseract.image = selectedImage.g8_blackAndWhite()
+            
+            DispatchQueue.global().async {
+                self.tesseract.recognize()
+                DispatchQueue.main.async {
+                    self.display.text = self.tesseract.recognizedText
+                }
+            }
         }
         
         picker.dismiss(animated: true, completion: nil)
@@ -80,7 +95,7 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
                     let nf = NumberFormatter()
                     nf.numberStyle = NumberFormatter.Style.decimal
                     nf.maximumFractionDigits = 2
-                    
+
                     self.display.text = "\(optimalResult.identifier) with confidence of \(nf.string(from: NSNumber(value: optimalResult.confidence * 100))!)%"
                 }
             })
@@ -96,5 +111,16 @@ class ImageRecognitionViewController: UIViewController, UIImagePickerControllerD
         catch {
             print("Load inception model failed \(error)")
         }
+    }
+    
+    func shouldCancelImageRecognitionForTesseract(tesseract: G8Tesseract!) -> Bool {
+        return false // return true if you need to interrupt tesseract before it finishes
+    }
+    
+    func progressImageRecognition(for tesseract: G8Tesseract!) {
+        DispatchQueue.main.async {
+            self.display.text = "Recognition Progress %: \(tesseract.progress)"
+        }
+        print("Recognition Progress %: ",tesseract.progress)
     }
 }

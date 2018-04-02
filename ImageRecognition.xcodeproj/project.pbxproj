@@ -13,6 +13,8 @@
 		2C688F492071ED75000735A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C688F472071ED75000735A0 /* LaunchScreen.storyboard */; };
 		2C688F532071EDB7000735A0 /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C688F522071EDB7000735A0 /* ImageRecognitionViewController.swift */; };
 		2C688F552071EEFB000735A0 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2C688F542071EEFB000735A0 /* Inceptionv3.mlmodel */; };
+		2C688F7D20720F3C000735A0 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 2C688F7C20720F3C000735A0 /* tessdata */; };
+		604ADABBEFDF46ADBE19AFC7 /* Pods_ImageRecognition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA45B78D8AF4ACA518C80FD /* Pods_ImageRecognition.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		2C688F4A2071ED75000735A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C688F522071EDB7000735A0 /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
 		2C688F542071EEFB000735A0 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
+		2C688F7C20720F3C000735A0 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tessdata; path = ImageRecognition/tessdata; sourceTree = "<group>"; };
+		69616AEA72DBD95C89BB7107 /* Pods-ImageRecognition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageRecognition.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImageRecognition/Pods-ImageRecognition.release.xcconfig"; sourceTree = "<group>"; };
+		C906AE61A34B2A7C9AD2BAD7 /* Pods-ImageRecognition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageRecognition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImageRecognition/Pods-ImageRecognition.debug.xcconfig"; sourceTree = "<group>"; };
+		CAA45B78D8AF4ACA518C80FD /* Pods_ImageRecognition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageRecognition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604ADABBEFDF46ADBE19AFC7 /* Pods_ImageRecognition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +47,11 @@
 		2C688F322071ED75000735A0 = {
 			isa = PBXGroup;
 			children = (
+				2C688F7C20720F3C000735A0 /* tessdata */,
 				2C688F3D2071ED75000735A0 /* ImageRecognition */,
 				2C688F3C2071ED75000735A0 /* Products */,
+				344042E60793380EDE043491 /* Pods */,
+				F4FA1BC494EF18BBAA9D5793 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +77,23 @@
 			path = ImageRecognition;
 			sourceTree = "<group>";
 		};
+		344042E60793380EDE043491 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C906AE61A34B2A7C9AD2BAD7 /* Pods-ImageRecognition.debug.xcconfig */,
+				69616AEA72DBD95C89BB7107 /* Pods-ImageRecognition.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F4FA1BC494EF18BBAA9D5793 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAA45B78D8AF4ACA518C80FD /* Pods_ImageRecognition.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C688F4D2071ED75000735A0 /* Build configuration list for PBXNativeTarget "ImageRecognition" */;
 			buildPhases = (
+				EB77FE8A99897A1367921574 /* [CP] Check Pods Manifest.lock */,
 				2C688F372071ED75000735A0 /* Sources */,
 				2C688F382071ED75000735A0 /* Frameworks */,
 				2C688F392071ED75000735A0 /* Resources */,
+				E230F7427FD31EAD1C274A45 /* [CP] Embed Pods Frameworks */,
+				49159149B642D1077B085C88 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -127,12 +157,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C688F492071ED75000735A0 /* LaunchScreen.storyboard in Resources */,
+				2C688F7D20720F3C000735A0 /* tessdata in Resources */,
 				2C688F462071ED75000735A0 /* Assets.xcassets in Resources */,
 				2C688F442071ED75000735A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49159149B642D1077B085C88 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ImageRecognition/Pods-ImageRecognition-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E230F7427FD31EAD1C274A45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ImageRecognition/Pods-ImageRecognition-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TesseractOCRiOS/TesseractOCR.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TesseractOCR.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ImageRecognition/Pods-ImageRecognition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB77FE8A99897A1367921574 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ImageRecognition-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C688F372071ED75000735A0 /* Sources */ = {
@@ -276,12 +361,15 @@
 		};
 		2C688F4E2071ED75000735A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C906AE61A34B2A7C9AD2BAD7 /* Pods-ImageRecognition.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EC59E44FX2;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ImageRecognition/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "zhangyichi12-gmail.com.ImageRecognition";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -291,10 +379,12 @@
 		};
 		2C688F4F2071ED75000735A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69616AEA72DBD95C89BB7107 /* Pods-ImageRecognition.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EC59E44FX2;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ImageRecognition/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "zhangyichi12-gmail.com.ImageRecognition";
